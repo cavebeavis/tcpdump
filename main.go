@@ -9,7 +9,9 @@ import (
 )
 
 func main() {
-	cmd := exec.Command("tcpdump", "--interface", "any")
+	// https://rmoff.net/2019/11/29/using-tcpdump-with-docker/
+	// sudo tcpdump --interface any -vvv -A 'port 1162'
+	cmd := exec.Command("tcpdump", "--interface", "any", "-vv")
 
 	stdout, _ := cmd.StdoutPipe()
 	cmd.Stderr = os.Stdout
